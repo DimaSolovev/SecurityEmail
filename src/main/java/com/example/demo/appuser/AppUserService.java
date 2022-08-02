@@ -1,5 +1,6 @@
 package com.example.demo.appuser;
 
+import com.example.demo.email.EmailSender;
 import com.example.demo.registration.token.ConfirmationToken;
 import com.example.demo.registration.token.ConfirmationTokenService;
 import lombok.AllArgsConstructor;
@@ -32,6 +33,8 @@ public class AppUserService implements UserDetailsService {
                 .isPresent();
 
         if (userExists) {
+            //TODO check atributes are the same
+            //TODO if email not confirmed send confirmation email
             throw new IllegalStateException("email already taken");
         }
 
